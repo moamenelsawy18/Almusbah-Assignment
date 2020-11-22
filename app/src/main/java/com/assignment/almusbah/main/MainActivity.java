@@ -1,8 +1,10 @@
-package com.assignment.almusbah;
+package com.assignment.almusbah.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.assignment.almusbah.R;
 
 public class MainActivity extends AppCompatActivity {
 

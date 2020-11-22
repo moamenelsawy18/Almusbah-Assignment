@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.assignment.almusbah.network.NetworkState" />
+
+        <variable
+            name="viewModel"
+            type="com.assignment.almusbah.main.UsersViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/loading_view"
+            layout="@layout/content_loading_users"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{viewModel.networkState == NetworkState.RUNNING &amp;&amp; viewModel.users.size() == 0 ? View.VISIBLE : View.GONE}" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            app:items="@{viewModel.users}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
